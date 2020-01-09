@@ -108,19 +108,19 @@
                                 </subviews>
                             </stackView>
                             <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Luq-UO-MFJ">
-                                <rect key="frame" x="183.5" y="899" width="47" height="47"/>
+                                <rect key="frame" x="180.5" y="893" width="53" height="53"/>
                                 <subviews>
                                     <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="HBv-vC-Yil">
-                                        <rect key="frame" x="5" y="5" width="37" height="37"/>
+                                        <rect key="frame" x="8" y="8" width="37" height="37"/>
                                         <color key="color" name="accent"/>
                                     </activityIndicatorView>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <constraints>
-                                    <constraint firstItem="HBv-vC-Yil" firstAttribute="leading" secondItem="Luq-UO-MFJ" secondAttribute="leading" constant="5" id="2Hd-zj-paS"/>
-                                    <constraint firstAttribute="trailing" secondItem="HBv-vC-Yil" secondAttribute="trailing" constant="5" id="3DL-N2-zOu"/>
-                                    <constraint firstAttribute="bottom" secondItem="HBv-vC-Yil" secondAttribute="bottom" constant="5" id="Rax-Hr-mYR"/>
-                                    <constraint firstItem="HBv-vC-Yil" firstAttribute="top" secondItem="Luq-UO-MFJ" secondAttribute="top" constant="5" id="r6X-iD-UIN"/>
+                                    <constraint firstItem="HBv-vC-Yil" firstAttribute="leading" secondItem="Luq-UO-MFJ" secondAttribute="leading" constant="8" id="2Hd-zj-paS"/>
+                                    <constraint firstAttribute="trailing" secondItem="HBv-vC-Yil" secondAttribute="trailing" constant="8" id="3DL-N2-zOu"/>
+                                    <constraint firstAttribute="bottom" secondItem="HBv-vC-Yil" secondAttribute="bottom" constant="8" id="Rax-Hr-mYR"/>
+                                    <constraint firstItem="HBv-vC-Yil" firstAttribute="top" secondItem="Luq-UO-MFJ" secondAttribute="top" constant="8" id="r6X-iD-UIN"/>
                                 </constraints>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
