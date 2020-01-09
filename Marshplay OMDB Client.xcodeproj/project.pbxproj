@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8343AC8A23C7969B00D9DA97 /* UIView+Shimmer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8343AC8923C7969B00D9DA97 /* UIView+Shimmer.swift */; };
 		83890C0D23C4CFD60011120E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83890C0C23C4CFD60011120E /* AppDelegate.swift */; };
 		83890C0F23C4CFD60011120E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83890C0E23C4CFD60011120E /* SceneDelegate.swift */; };
 		83890C1123C4CFD60011120E /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83890C1023C4CFD60011120E /* SearchViewController.swift */; };
@@ -29,6 +30,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		8343AC8923C7969B00D9DA97 /* UIView+Shimmer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Shimmer.swift"; sourceTree = "<group>"; };
 		83890C0923C4CFD60011120E /* Marshplay OMDB Client.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Marshplay OMDB Client.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		83890C0C23C4CFD60011120E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		83890C0E23C4CFD60011120E /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -133,6 +135,7 @@
 				83890C3B23C50C780011120E /* Alert.swift */,
 				83890C3D23C50D590011120E /* WindowWrapper.swift */,
 				83890C3F23C514490011120E /* Dateformatter+short.swift */,
+				8343AC8923C7969B00D9DA97 /* UIView+Shimmer.swift */,
 			);
 			path = Utility;
 			sourceTree = "<group>";
@@ -234,6 +237,7 @@
 				83890C3C23C50C780011120E /* Alert.swift in Sources */,
 				83890C0D23C4CFD60011120E /* AppDelegate.swift in Sources */,
 				83890C4423C51AE80011120E /* DetailViewController.swift in Sources */,
+				8343AC8A23C7969B00D9DA97 /* UIView+Shimmer.swift in Sources */,
 				83890C3E23C50D590011120E /* WindowWrapper.swift in Sources */,
 				83890C3823C501B60011120E /* UIImageView+LoadImage.swift in Sources */,
 				83890C1723C4CFD60011120E /* Marshplay_OMDB_Client.xcdatamodeld in Sources */,

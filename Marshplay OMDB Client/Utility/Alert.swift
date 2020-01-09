@@ -22,9 +22,7 @@ class Alert {
             }
             // topController should now be your topmost view controller
             let alert = UIAlertController(title: nil, message: message, preferredStyle: .alert)
-            
             alert.view.tintColor = UIColor(named: "accent")!
-            //CGRectMake(10, 5, 50, 50)
             let loadingIndicator: UIActivityIndicatorView = UIActivityIndicatorView(frame: CGRect(x: 10, y: 5, width: 50, height: 50)) as UIActivityIndicatorView
             loadingIndicator.hidesWhenStopped = true
             loadingIndicator.style = UIActivityIndicatorView.Style.medium

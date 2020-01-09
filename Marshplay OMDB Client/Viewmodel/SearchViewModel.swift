@@ -38,21 +38,16 @@ class SearchViewModel{
             searchText = movie
         }
         
-        guard let url = URL(string: "http://www.omdbapi.com/?s=\(searchText.trimmingCharacters(in: .whitespaces).split(separator: " ").joined())&page=\(page)&apikey=eeefc96f")else{
+        //To filter out white spaces
+        let cleanedText = searchText.trimmingCharacters(in: .whitespaces).split(separator: " ").joined()
+        
+        guard let url = URL(string: "http://www.omdbapi.com/?s=\(cleanedText)&page=\(page)&apikey=eeefc96f")else{
             fatalError("Invalid url")
         }
         
-        switch status {
-        case .error,.loading:
-            status = .loading
-            Alert.shared.showLoader()
-        default:
-            break
-        }
         
         let request = URLRequest(url: url, cachePolicy: .returnCacheDataElseLoad, timeoutInterval: 5)
         
-        isProcessing = true
         let dataTask = URLSession.shared.dataTask(with: request) {  (data, response, error) in
             self.isProcessing = false
             Alert.shared.hideLoader()
@@ -71,7 +66,7 @@ class SearchViewModel{
                         if shouldAppend{
                             switch self.status {
                             case .loaded(let results):
-                                self.status = .loaded(results: searchResponse.search + results)
+                                self.status = .loaded(results: results + searchResponse.search)
                             default:
                                 self.status = .loaded(results: searchResponse.search)
                             }
@@ -95,7 +90,19 @@ class SearchViewModel{
                 }
             }
         }
-        dataTask.resume()
+        
+        //if no request are pending then only it activates new request and if the query is not empty
+        if !isProcessing && !cleanedText.isEmpty{
+            switch status {
+            case .error,.loading:
+                status = .loading
+                Alert.shared.showLoader()
+            default:
+                break
+            }
+            isProcessing = true
+            dataTask.resume()
+        }
     }
     
     func didChangeStatus(_ action: @escaping (_ status: SearchResultStatus)->Void){
@@ -113,6 +120,12 @@ class SearchViewModel{
     func getNextPage(_ completion: @escaping ()->Void){
         page += 1
         search(shouldAppend: true, completion)
+    }
+    func reset() {
+        page = 1
+        isLast = false
+        searchText = ""
+        status = .loading
     }
     
 }

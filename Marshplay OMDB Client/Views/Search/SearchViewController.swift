@@ -11,7 +11,8 @@ import UIKit
 class SearchViewController: UIViewController {
     
     @IBOutlet weak var movieCollectionView: UICollectionView!
-    @IBOutlet weak var bottomActivityIndication: UIActivityIndicatorView!
+    @IBOutlet weak var indicatorView: UIView!
+    @IBOutlet weak var loaderBottomContraint: NSLayoutConstraint!
     private lazy var datasource = makeDataSource()
     private lazy var viewModel = SearchViewModel()
     var loaderView: UIAlertController?
@@ -29,9 +30,9 @@ class SearchViewController: UIViewController {
         setUI()
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        setUI()
-    }
+//    override func viewWillAppear(_ animated: Bool) {
+//        setUI()
+//    }
     
     func startObserving(){
         viewModel.didChangeStatus { status in
@@ -55,7 +56,16 @@ class SearchViewController: UIViewController {
         // MARK: Collection's layout
         let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
         layout.sectionInset = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
-        let width = UIScreen.main.bounds.width
+        
+        //to get the width of the device
+        let width: CGFloat
+        switch UIDevice.current.orientation {
+        case .portrait,.portraitUpsideDown:
+            width = UIScreen.main.bounds.width
+        default:
+            width = UIScreen.main.bounds.height
+        }
+        
         // 71 is calculated by adding all the constraint added in cell
         layout.itemSize = CGSize(width: width/2 - 15 , height: (width/2 - 15) + 71 )
         layout.minimumInteritemSpacing = 0
@@ -98,32 +108,19 @@ class SearchViewController: UIViewController {
     }
     
     func showPageLoader(){
-        UIView.animate(withDuration: 0.3) {
-            self.bottomActivityIndication.isHidden = false
-            self.bottomActivityIndication.transform = .identity
+        loaderBottomContraint.constant = 50
+        UIView.animate(withDuration: 0.5) {
+            self.view.layoutIfNeeded()
         }
     }
     
     func hidePageLoader(){
-        UIView.animate(withDuration: 0.3) {
-
-            self.bottomActivityIndication.transform = CGAffineTransform(translationX: 0, y: -100)
-            self.bottomActivityIndication.isHidden = true
+        loaderBottomContraint.constant = -50
+        UIView.animate(withDuration: 0.5) {
+            self.view.layoutIfNeeded()
         }
     }
     
-    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
-        super.viewWillTransition(to: size, with: coordinator)
-        // MARK: Collection's layout
-        let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
-        layout.sectionInset = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
-        let width = UIScreen.main.bounds.height
-        // 71 is calculated by adding all the constraint added in cell
-        layout.itemSize = CGSize(width: width/2 - 15 , height: (width/2 - 15) + 71 )
-        layout.minimumInteritemSpacing = 0
-        layout.minimumLineSpacing = 10
-        movieCollectionView.collectionViewLayout = layout
-    }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == SegueIdentifiers.toDetail.rawValue{
@@ -160,8 +157,9 @@ private extension SearchViewController{
 extension SearchViewController: UISearchResultsUpdating {
     func updateSearchResults(for searchController: UISearchController) {
         guard let text = searchController.searchBar.text else{return}
+        //empty the collection when searchfield is empty
         if text.isEmpty{
-            self.viewModel.searchText = ""
+            self.viewModel.reset()
             self.emptyCollection(true)
         }
     }
@@ -172,7 +170,7 @@ extension SearchViewController: UISearchBarDelegate{
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         guard let text = searchBar.text else{return}
         if !text.isEmpty{
-            if !viewModel.isProcessing && text != viewModel.searchText{
+            if text != viewModel.searchText{
                 viewModel.refresh(text: searchController.searchBar.text)
             }
         }else{
@@ -195,12 +193,10 @@ extension SearchViewController: UICollectionViewDelegate{
         switch viewModel.status {
         case .loaded(let results):
             if indexPath.row == results.count - 1 && !viewModel.isLast{
+                //loading next page of response
                 showPageLoader()
-                
                 viewModel.getNextPage(){
-                    DispatchQueue.main.async {
-                        self.hidePageLoader()
-                    }
+                    DispatchQueue.main.async { self.hidePageLoader() }
                 }
             }
         default:

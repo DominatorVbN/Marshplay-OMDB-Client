@@ -42,6 +42,7 @@
                                                             <subviews>
                                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Upt-6H-8Ea">
                                                                     <rect key="frame" x="0.0" y="0.0" width="178" height="178"/>
+                                                                    <color key="backgroundColor" name="accentShadow"/>
                                                                     <constraints>
                                                                         <constraint firstAttribute="width" secondItem="Upt-6H-8Ea" secondAttribute="height" id="pQR-Ym-PMI"/>
                                                                     </constraints>
@@ -106,25 +107,43 @@
                                     </collectionView>
                                 </subviews>
                             </stackView>
-                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="HBv-vC-Yil">
-                                <rect key="frame" x="197" y="832" width="20" height="20"/>
-                                <color key="color" name="accent"/>
-                            </activityIndicatorView>
+                            <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Luq-UO-MFJ">
+                                <rect key="frame" x="183.5" y="899" width="47" height="47"/>
+                                <subviews>
+                                    <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="HBv-vC-Yil">
+                                        <rect key="frame" x="5" y="5" width="37" height="37"/>
+                                        <color key="color" name="accent"/>
+                                    </activityIndicatorView>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <constraints>
+                                    <constraint firstItem="HBv-vC-Yil" firstAttribute="leading" secondItem="Luq-UO-MFJ" secondAttribute="leading" constant="5" id="2Hd-zj-paS"/>
+                                    <constraint firstAttribute="trailing" secondItem="HBv-vC-Yil" secondAttribute="trailing" constant="5" id="3DL-N2-zOu"/>
+                                    <constraint firstAttribute="bottom" secondItem="HBv-vC-Yil" secondAttribute="bottom" constant="5" id="Rax-Hr-mYR"/>
+                                    <constraint firstItem="HBv-vC-Yil" firstAttribute="top" secondItem="Luq-UO-MFJ" secondAttribute="top" constant="5" id="r6X-iD-UIN"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <real key="value" value="23.5"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" name="background"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="R2B-YY-5Rg" secondAttribute="trailing" id="37v-AD-QRE"/>
+                            <constraint firstAttribute="bottom" secondItem="Luq-UO-MFJ" secondAttribute="bottom" constant="-50" id="3t7-bs-pem"/>
                             <constraint firstItem="R2B-YY-5Rg" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="Oke-jj-cyQ"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="R2B-YY-5Rg" secondAttribute="bottom" id="VE6-wO-YQA"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="HBv-vC-Yil" secondAttribute="bottom" constant="10" id="gQb-Uv-GFb"/>
-                            <constraint firstItem="HBv-vC-Yil" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="iRx-rf-tHm"/>
                             <constraint firstItem="R2B-YY-5Rg" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="sQY-QC-se2"/>
+                            <constraint firstItem="Luq-UO-MFJ" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="xyG-yO-25n"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <navigationItem key="navigationItem" title="OMDB" id="W8S-PP-6GO"/>
                     <connections>
-                        <outlet property="bottomActivityIndication" destination="HBv-vC-Yil" id="Skb-4P-OdK"/>
+                        <outlet property="indicatorView" destination="Luq-UO-MFJ" id="9V8-YG-G2U"/>
+                        <outlet property="loaderBottomContraint" destination="3t7-bs-pem" id="md6-jY-Qrt"/>
                         <outlet property="movieCollectionView" destination="94N-Ld-wZ3" id="vwS-Cv-Tcp"/>
                         <segue destination="XF0-nN-ey8" kind="show" identifier="toDetail" id="LBW-C0-1FU"/>
                     </connections>
