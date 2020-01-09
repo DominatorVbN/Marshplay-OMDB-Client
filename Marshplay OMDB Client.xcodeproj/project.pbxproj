@@ -8,6 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		8343AC8A23C7969B00D9DA97 /* UIView+Shimmer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8343AC8923C7969B00D9DA97 /* UIView+Shimmer.swift */; };
+		8343AC9223C7A65600D9DA97 /* homeLight.png in Resources */ = {isa = PBXBuildFile; fileRef = 8343AC8D23C7A65500D9DA97 /* homeLight.png */; };
+		8343AC9323C7A65600D9DA97 /* homeDark.png in Resources */ = {isa = PBXBuildFile; fileRef = 8343AC8E23C7A65500D9DA97 /* homeDark.png */; };
+		8343AC9423C7A65600D9DA97 /* detailDark.png in Resources */ = {isa = PBXBuildFile; fileRef = 8343AC8F23C7A65500D9DA97 /* detailDark.png */; };
+		8343AC9523C7A65600D9DA97 /* detailLight.png in Resources */ = {isa = PBXBuildFile; fileRef = 8343AC9023C7A65500D9DA97 /* detailLight.png */; };
+		8343AC9623C7A65600D9DA97 /* recording.mov in Resources */ = {isa = PBXBuildFile; fileRef = 8343AC9123C7A65600D9DA97 /* recording.mov */; };
 		83890C0D23C4CFD60011120E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83890C0C23C4CFD60011120E /* AppDelegate.swift */; };
 		83890C0F23C4CFD60011120E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83890C0E23C4CFD60011120E /* SceneDelegate.swift */; };
 		83890C1123C4CFD60011120E /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83890C1023C4CFD60011120E /* SearchViewController.swift */; };
@@ -31,6 +36,12 @@
 
 /* Begin PBXFileReference section */
 		8343AC8923C7969B00D9DA97 /* UIView+Shimmer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Shimmer.swift"; sourceTree = "<group>"; };
+		8343AC8B23C7A54800D9DA97 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		8343AC8D23C7A65500D9DA97 /* homeLight.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = homeLight.png; sourceTree = "<group>"; };
+		8343AC8E23C7A65500D9DA97 /* homeDark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = homeDark.png; sourceTree = "<group>"; };
+		8343AC8F23C7A65500D9DA97 /* detailDark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = detailDark.png; sourceTree = "<group>"; };
+		8343AC9023C7A65500D9DA97 /* detailLight.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = detailLight.png; sourceTree = "<group>"; };
+		8343AC9123C7A65600D9DA97 /* recording.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = recording.mov; sourceTree = "<group>"; };
 		83890C0923C4CFD60011120E /* Marshplay OMDB Client.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Marshplay OMDB Client.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		83890C0C23C4CFD60011120E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		83890C0E23C4CFD60011120E /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -65,9 +76,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		8343AC8C23C7A63400D9DA97 /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				8343AC9123C7A65600D9DA97 /* recording.mov */,
+				8343AC8D23C7A65500D9DA97 /* homeLight.png */,
+				8343AC8E23C7A65500D9DA97 /* homeDark.png */,
+				8343AC8F23C7A65500D9DA97 /* detailDark.png */,
+				8343AC9023C7A65500D9DA97 /* detailLight.png */,
+			);
+			path = Assets;
+			sourceTree = "<group>";
+		};
 		83890C0023C4CFD60011120E = {
 			isa = PBXGroup;
 			children = (
+				8343AC8C23C7A63400D9DA97 /* Assets */,
+				8343AC8B23C7A54800D9DA97 /* README.md */,
 				83890C0B23C4CFD60011120E /* Marshplay OMDB Client */,
 				83890C0A23C4CFD60011120E /* Products */,
 			);
@@ -216,9 +241,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				83890C1C23C4CFDB0011120E /* LaunchScreen.storyboard in Resources */,
+				8343AC9623C7A65600D9DA97 /* recording.mov in Resources */,
 				83890C2B23C4D9140011120E /* Colors.xcassets in Resources */,
 				83890C1923C4CFDB0011120E /* Assets.xcassets in Resources */,
+				8343AC9423C7A65600D9DA97 /* detailDark.png in Resources */,
+				8343AC9223C7A65600D9DA97 /* homeLight.png in Resources */,
+				8343AC9523C7A65600D9DA97 /* detailLight.png in Resources */,
 				83890C1423C4CFD60011120E /* Main.storyboard in Resources */,
+				8343AC9323C7A65600D9DA97 /* homeDark.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
